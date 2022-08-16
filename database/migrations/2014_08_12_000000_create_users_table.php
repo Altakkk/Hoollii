@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->nullable();
-            $table->string('join_date')->nullable();
+            $table->string('user_id');
+            $table->string('email')->unique();
+            $table->string('join_date')->unique();
             $table->string('phone_number')->nullable();
             $table->string('status')->nullable();
             $table->string('role_name')->nullable();
@@ -30,6 +31,7 @@ return new class extends Migration
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.
@@ -40,4 +42,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
     }
-};
+}
