@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="keywords" content="admin, dashboard">
@@ -24,7 +23,6 @@
 	
 </head>
 <body>
-
     <!-- Preloader start -->
     <div id="preloader">
         <div class="waviy">
@@ -415,7 +413,7 @@
 			</div>
 		</div>
 		<!-- Chat box End -->
-		
+
 		<!-- Header start -->
         <div class="header">
             <div class="header-content">
@@ -550,7 +548,6 @@
             </div>
         </div>
         <!-- Footer end -->
-
 	</div>
     <!-- Main wrapper end -->
 
