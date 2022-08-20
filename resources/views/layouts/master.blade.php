@@ -18,6 +18,10 @@
 	<link rel="shortcut icon" type="image/png" href="{{URL::to('assets/images/favicon.png')}}">
 	<link href="{{URL::to('assets/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
 	<link rel="stylesheet" href="{{URL::to('assets/vendor/nouislider/nouislider.min.css')}}">
+	<!-- Datatable -->
+	<link href="{{URL::to('assets/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+	<!-- Custom Stylesheet -->
+	<link href="{{URL::to('assets/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
 	<!-- Style css -->
     <link href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
 	
@@ -557,6 +561,13 @@
 	<script src="{{URL::to('assets/vendor/chart.js/Chart.bundle.min.js')}}"></script>
 	<script src="{{URL::to('assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
 	<!-- Apex Chart -->
+
+	<!-- Datatable -->
+	<script src="{{URL::to('assets/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+	<script src="{{URL::to('assets/js/plugins-init/datatables.init.js')}}"></script>
+
+	<script src="{{URL::to('assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
+
 	<script src="{{URL::to('assets/vendor/apexchart/apexchart.js')}}"></script>
 	<script src="{{URL::to('assets/vendor/nouislider/nouislider.min.js')}}"></script>
 	<script src="{{URL::to('assets/vendor/wnumb/wNumb.js')}}"></script>

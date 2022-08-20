@@ -30,7 +30,7 @@
                     <span class="nav-text">Dashboard</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="index.html">Dashboard Light</a></li>
+                    <li><a href="{{ route('user/table') }}">User Management</a></li>
                 </ul>
             </li>
         </ul>

@@ -6,7 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\UserManagementController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,5 +52,10 @@ Route::controller(RegisterController::class)->group(function () {
 // -------------------------- main dashboard ----------------------//
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home', 'index')->name('home');
+});
+
+// -------------------------- user management ----------------------//
+Route::controller(UserManagementController::class)->group(function () {
+    Route::get('user/table', 'index')->name('user/table');
 });
 

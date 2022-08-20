@@ -12,6 +12,8 @@ use App\Models\User;
 use Carbon\Carbon;
 use Session;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Http;
 
 class LoginController extends Controller
 {
@@ -63,23 +65,43 @@ class LoginController extends Controller
                 'username' => 'required|string',
                 'password' => 'required|string',
             ]);
-            $email = '@gmail.com';
-            $username  = $request->username . $email;
-            $password = $request->password;
 
-            if (Auth::attempt(['email'=>$username,'password'=>$password])) {
-                
+            $email     = '@gmail.com';
+            $username  = $request->username . $email;
+            $password  = $request->password;
+
+            if(App::environment('login_api'))
+            {
+            //   Get Token from API
+            //   $http = new \GuzzleHttp\Client;
+                $response = Http::post('http://localhost/example_api/public/api/login?', [
+                    'headers' => [
+                        'Authorization' => 'Bearer' .session()->get('token.access_token'),
+                    ],
+                    'query'=> [
+                        'email'    => 'admin@gmail.com',
+                        'password' => $password,
+                    ]
+                ]);
+
+                $result = json_decode((string) $response->getBody(),true);
+                Toastr::success('Login successfully :)','Success');
+                return redirect()->intended('home');
+
+            } elseif (App::environment('login_normal')) {
+                if (Auth::attempt(['email'=>$username,'password'=>$password])) {
                 /** get session */
                 $user = Auth::User();
                 Session::put('name', $user->name);
                 Session::put('email', $user->email);
                 Toastr::success('Login successfully :)','Success');
                 return redirect()->intended('home');
-            } else {
-                Toastr::error('fail, WRONG USERNAME OR PASSWORD :)','Error');
-                return redirect('login');
+                } else {
+                    Toastr::error('fail, WRONG USERNAME OR PASSWORD :)','Error');
+                    return redirect('login');
+                }
             }
-
+           
         } catch(\Exception $e) {
             DB::rollback();
             Toastr::error('fail, LOGIN :)','Error');
@@ -88,9 +110,14 @@ class LoginController extends Controller
     }
 
     /** logout */
-    public function logout()
+    public function logout( Request $request)
     {
         Auth::logout();
+        // forget login session
+        $request->session()->forget('name');
+        $request->session()->forget('email');
+        $request->session()->flush();
+
         Toastr::success('Logout successfully :)','Success');
         return redirect('login');
     }
