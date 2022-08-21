@@ -2,6 +2,8 @@
 @extends('layouts.master')
 @section('content')
 @include('sidebar.dashbord')
+<link href="{{URL::to('assets/css/custom_style.css')}}" rel="stylesheet">
+
 {{-- message --}}
 {!! Toastr::message() !!}
   
@@ -49,16 +51,25 @@
                                         <td><span class="badge light badge-info">{{$items->role_name}}</span></td>
                                         @endif
                                         <td>{{$items->email}}</td>
+                                        @if ($items->status =='active')
                                         <td>
                                             <span class="badge light badge-success">
                                             <i class="fa fa-circle text-success me-1"></i>{{$items->status}}
                                             </span>
                                         </td>
+                                        @else
+                                        <td>
+                                            <span class="badge light badge-denger">
+                                            <i class="fa fa-circle text-denger me-1"></i>{{$items->status}}
+                                            </span>
+                                        </td>
+                                        @endif
+                                       
                                         <td>{{$items->join_date}}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                                <a class="btn btn-danger shadow btn-xs sharp" href="#" data-toggle="modal" data-target="#delete_user"><i class="fa fa-trash"></i> Delete</a>
                                             </div>												
                                         </td>												
                                     </tr>
@@ -83,9 +94,36 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
 
+<!-- Delete User Modal -->
+<div class="modal custom-modal fade" id="delete_user" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-header">
+                    <h3>Delete User</h3>
+                    <p>Are you sure want to delete?</p>
+                </div>
+                <div class="modal-btn delete-action">
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="javascript:void(0);" class="btn btn-primary-cus continue-btn">Delete</a>
+                        </div>
+                        <div class="col-6">
+                            <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary-cus cancel-btn">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Delete User Modal -->
+@section('script')
+    <!-- Bootstrap Core JS -->
+    <script src="{{URL::to('assets/js/bootstrap.min.js')}}"></script>
+@endsection
 @endsection

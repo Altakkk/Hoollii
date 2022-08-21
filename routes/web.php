@@ -51,11 +51,11 @@ Route::controller(RegisterController::class)->group(function () {
 
 // -------------------------- main dashboard ----------------------//
 Route::controller(HomeController::class)->group(function () {
-    Route::get('/home', 'index')->name('home');
+    Route::get('/home', 'index')->middleware('auth')->name('home');
 });
 
 // -------------------------- user management ----------------------//
 Route::controller(UserManagementController::class)->group(function () {
-    Route::get('user/table', 'index')->name('user/table');
+    Route::get('user/table', 'index')->middleware('auth')->name('user/table');
 });
 

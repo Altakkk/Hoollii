@@ -577,6 +577,6 @@
 	<script src="{{URL::to('assets/js/dlabnav-init.js')}}"></script>
 	<script src="{{URL::to('assets/js/demo.js')}}"></script>
     <script src="{{URL::to('assets/js/styleSwitcher.js')}}"></script>
-	
+	@yield('script')
 </body>
 </html>
