@@ -70,7 +70,7 @@
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-primary shadow btn-xs sharp me-1 edit_user" href="#" data-toggle="modal" data-target="#edit_user"><i class="fas fa-pencil-alt"></i></a>
-                                                <a class="btn btn-danger shadow btn-xs sharp" href="#" data-toggle="modal" data-target="#delete_user"><i class="fa fa-trash"></i></a>
+                                                <a class="btn btn-danger shadow btn-xs sharp delete_user" href="#" data-toggle="modal" data-target="#delete_user"><i class="fa fa-trash"></i></a>
                                             </div>												
                                         </td>												
                                     </tr>
@@ -167,14 +167,18 @@
                     <p>Are you sure want to delete?</p>
                 </div>
                 <div class="modal-btn delete-action">
-                    <div class="row">
-                        <div class="col-6">
-                            <a href="javascript:void(0);" class="btn btn-primary-cus continue-btn">Delete</a>
+                    <form action="{{ route('user/delete') }}" method="POST">
+                        @csrf
+                        <input type="hidden" id="e_id" name="id">
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-primary-cus continue-btn submit-btn">Delete</button>
+                            </div>
+                            <div class="col-6">
+                                <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary-cus cancel-btn">Cancel</a>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary-cus cancel-btn">Cancel</a>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -197,6 +201,15 @@
             $('#e_status').val(_this.find('.status').text());
             $('#e_role_name').val(_this.find('.role_name').text());
             $('#e_join_date').val(_this.find('.join_date').text());
+        });
+    </script>
+
+    {{-- delete user --}}
+    <script>
+        $(document).on('click','.delete_user',function()
+        {
+            var _this = $(this).parents('tr');
+            $('#e_id').val(_this.find('.user_id').text());
         });
     </script>
 

@@ -58,5 +58,6 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(UserManagementController::class)->group(function () {
     Route::get('user/table', 'index')->middleware('auth')->name('user/table');
     Route::post('user/update', 'updateRecord')->name('user/update');
+    Route::post('user/delete', 'deleteRecord')->name('user/delete');
 });
 
