@@ -6,7 +6,7 @@
 
 {{-- message --}}
 {!! Toastr::message() !!}
-  
+
 <div class="content-body">
     <div class="container-fluid">
         <div class="row page-titles">
@@ -109,7 +109,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="{{ route('user/update') }}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="mb-3 col-md-12">
                             <label class="form-label">User ID</label>

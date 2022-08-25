@@ -24,9 +24,15 @@
 	<link href="{{URL::to('assets/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
 	<!-- Style css -->
     <link href="{{URL::to('assets/css/style.css')}}" rel="stylesheet">
+
+	{{-- message toastr --}}
+	<link rel="stylesheet" href="{{ URL::to('assets/css/toastr.min.css') }}">
+	<script src="{{ URL::to('assets/js/toastr_jquery.min.js') }}"></script>
+	<script src="{{ URL::to('assets/js/toastr.min.js') }}"></script>
 	
 </head>
 <body>
+
     <!-- Preloader start -->
     <div id="preloader">
         <div class="waviy">
@@ -43,6 +49,7 @@
 		</div>
     </div>
     <!-- Preloader end -->
+	
 
     <!-- Main wrapper start -->
     <div id="main-wrapper">
