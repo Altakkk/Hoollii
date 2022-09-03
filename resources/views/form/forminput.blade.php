@@ -68,6 +68,17 @@
                                         <input type="password" class="form-control" name="password">
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Upload File</label>
+                                        <div class="input-group mb-6">
+                                            <div class="form-file">
+                                                <input type="file" class="form-file-input form-control" name="upload[]">
+                                            </div>
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                    </div>
+                                </div>
                                 <button class="btn btn-primary" type="submit">Save</button>
                             </form>
                         </div>

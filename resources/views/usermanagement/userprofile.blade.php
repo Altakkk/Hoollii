@@ -22,15 +22,15 @@
                         </div>
                         <div class="profile-info">
                             <div class="profile-photo">
-                                <img src="{{ URL::to('assets/images/profile/profile.png') }}" class="img-fluid rounded-circle" alt="">
+                                <img src="{{ URL::to('assets/images/'.Session::get('avatar')) }}" class="img-fluid rounded-circle" alt="">
                             </div>
                             <div class="profile-details">
                                 <div class="profile-name px-3 pt-2">
-                                    <h4 class="text-primary mb-0">Mitchell C. Shay</h4>
-                                    <p>UX / UI Designer</p>
+                                    <h4 class="text-primary mb-0">{{ Session::get('name') }}</h4>
+                                    <p>{{ Session::get('position') }}</p>
                                 </div>
                                 <div class="profile-email px-2 pt-2">
-                                    <h4 class="text-muted mb-0">info@example.com</h4>
+                                    <h4 class="text-muted mb-0">{{ Session::get('email') }}</h4>
                                     <p>Email</p>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
                                                     <h5 class="f-w-500">Name <span class="pull-end">:</span>
                                                     </h5>
                                                 </div>
-                                                <div class="col-sm-9 col-7"><span>Mitchell C.Shay</span>
+                                                <div class="col-sm-9 col-7"><span>{{ Session::get('name') }}</span>
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -158,7 +158,7 @@
                                                     <h5 class="f-w-500">Email <span class="pull-end">:</span>
                                                     </h5>
                                                 </div>
-                                                <div class="col-sm-9 col-7"><span>example@examplel.com</span>
+                                                <div class="col-sm-9 col-7"><span>{{ Session::get('email') }}</span>
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -180,8 +180,7 @@
                                                 <div class="col-sm-3 col-5">
                                                     <h5 class="f-w-500">Location <span class="pull-end">:</span></h5>
                                                 </div>
-                                                <div class="col-sm-9 col-7"><span>Rosemont Avenue Melbourne,
-                                                        Florida</span>
+                                                <div class="col-sm-9 col-7"><span>Cambodai</span>
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -201,51 +200,51 @@
                                                     <div class="row">
                                                         <div class="mb-3 col-md-6">
                                                             <label class="form-label">Name</label>
-                                                            <input type="text" placeholder="Name" class="form-control" name="name">
+                                                            <input type="text" placeholder="Name" class="form-control" name="name" value="{{ Session::get('name') }}">
                                                         </div>
                                                         <div class="mb-3 col-md-6">
                                                             <label class="form-label">User ID</label>
-                                                            <input type="text" class="form-control" name="user_id" readonly>
+                                                            <input type="text" class="form-control" name="user_id" readonly value="{{ Session::get('user_id') }}">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="mb-3 col-md-6">
                                                             <label class="form-label">Email</label>
-                                                            <input type="email" placeholder="Email" class="form-control">
+                                                            <input type="email" placeholder="Email" class="form-control" name="email" value="{{ Session::get('email') }}">
                                                         </div>
                                                         <div class="mb-3 col-md-6">
                                                             <label class="form-label">Join Date</label>
-                                                            <input type="text" class="form-control" name="join_date" readonly>
+                                                            <input type="text" class="form-control" name="join_date" readonly value="{{ Session::get('join_date') }}">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="mb-3 col-md-6">
                                                             <label class="form-label">Phone Number</label>
-                                                            <input type="tel" placeholder="Phone Number" class="form-control" name="phone_number">
+                                                            <input type="tel" placeholder="Phone Number" class="form-control" name="phone_number" value="{{ Session::get('phone_number') }}">
                                                         </div>
                                                         <div class="mb-3 col-md-6">
                                                             <label class="form-label">Role Name</label>
-                                                            <input type="text" class="form-control" name="role_name" readonly>
+                                                            <input type="text" class="form-control" name="role_name" readonly value="{{ Session::get('role_name') }}">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="mb-3 col-md-6">
                                                             <label class="form-label">Status</label>
-                                                            <input type="tel" class="form-control" name="status" readonly>
+                                                            <input type="tel" class="form-control" name="status" readonly value="{{ Session::get('status') }}">
                                                         </div>
                                                         <div class="mb-3 col-md-6">
                                                             <label class="form-label">Position</label>
-                                                            <input type="text" class="form-control" name="position" readonly>
+                                                            <input type="text" class="form-control" name="position" readonly value="{{ Session::get('position') }}">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="mb-3 col-md-6">
                                                             <label class="form-label">Department</label>
-                                                            <input type="text" class="form-control" name="department" readonly>
+                                                            <input type="text" class="form-control" name="department" readonly value="{{ Session::get('department') }}">
                                                         </div>
                                                         <div class="mb-3 col-md-6">
                                                             <label class="form-label">Password</label>
-                                                            <input type="password" class="form-control" name="password">
+                                                            <input type="password" class="form-control" name="password" value="{{ Session::get('password') }}">
                                                         </div>
                                                     </div>
                                                     <button class="btn btn-primary" type="submit">Update</button>
