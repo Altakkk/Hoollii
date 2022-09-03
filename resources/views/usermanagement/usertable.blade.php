@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
-@include('sidebar.sidebar')
-
+<link href="{{ URL::to('assets/css/custom_style.css') }}" rel="stylesheet">
 {{-- message --}}
 {!! Toastr::message() !!}
 
