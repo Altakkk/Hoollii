@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\TypeFormController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,5 +60,13 @@ Route::controller(UserManagementController::class)->group(function () {
     Route::get('user/table', 'index')->middleware('auth')->name('user/table');
     Route::post('user/update', 'updateRecord')->name('user/update');
     Route::post('user/delete', 'deleteRecord')->name('user/delete');
+    Route::get('user/profile', 'profileUser')->middleware('auth')->name('user/profile');
+
+});
+
+// -------------------------- type form ----------------------//
+Route::controller(TypeFormController::class)->group(function () {
+    Route::get('form/input/new', 'index')->middleware('auth')->name('form/input/new');
+
 });
 

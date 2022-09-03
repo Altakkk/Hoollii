@@ -1,7 +1,6 @@
 
 @extends('layouts.master')
 @section('content')
-@include('sidebar.dashbord')
 {{-- message --}}
 {!! Toastr::message() !!}
 <div class="content-body">

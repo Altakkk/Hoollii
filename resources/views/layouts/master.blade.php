@@ -545,7 +545,7 @@
         <!-- Header end ti-comment-alt -->
 
         <!-- Sidebar start -->
-        @yield('menu')
+       	@include('sidebar.sidebar')
 		<!-- Sidebar end -->
         
 		<!-- Content body start -->

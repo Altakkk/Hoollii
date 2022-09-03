@@ -72,8 +72,8 @@ class LoginController extends Controller
 
             if(App::environment('login_api'))
             {
-            //   Get Token from API
-            //   $http = new \GuzzleHttp\Client;
+                //   Get Token from API
+                //   $http = new \GuzzleHttp\Client;
                 $response = Http::post('http://localhost/example_api/public/api/login?', [
                     'headers' => [
                         'Authorization' => 'Bearer' .session()->get('token.access_token'),

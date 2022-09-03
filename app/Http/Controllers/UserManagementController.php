@@ -55,4 +55,9 @@ class UserManagementController extends Controller
             return redirect()->back();
         }
     }
+
+    /** profile user */
+    public function profileUser() {
+        return view('usermanagement.userprofile');
+    }
 }

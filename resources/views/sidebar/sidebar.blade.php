@@ -11,7 +11,7 @@
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a href="app-profile.html" class="dropdown-item ai-icon">
+                    <a href="{{ route('user/profile') }}" class="dropdown-item ai-icon">
                         <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                         <span class="ms-2">Profile </span>
                     </a>
@@ -33,6 +33,14 @@
                     <li><a href="{{ route('user/table') }}">User Management</a></li>
                 </ul>
             </li>
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="flaticon-072-printer"></i>
+                <span class="nav-text">Forms</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{ route('form/input/new') }}">Form Input</a></li>
+            </ul>
+        </li>
         </ul>
     </div>
 </div>
