@@ -242,10 +242,6 @@
                                                             <label class="form-label">Department</label>
                                                             <input type="text" class="form-control" name="department" readonly value="{{ Session::get('department') }}">
                                                         </div>
-                                                        <div class="mb-3 col-md-6">
-                                                            <label class="form-label">Password</label>
-                                                            <input type="password" class="form-control" name="password" value="{{ Session::get('password') }}">
-                                                        </div>
                                                     </div>
                                                     <button class="btn btn-primary" type="submit">Update</button>
                                                 </form>

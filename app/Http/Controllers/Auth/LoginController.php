@@ -102,7 +102,6 @@ class LoginController extends Controller
                 Session::put('avatar', $user->avatar);
                 Session::put('position', $user->position);
                 Session::put('department', $user->department);
-                Session::put('password', $user->password);
                 Toastr::success('Login successfully :)','Success');
                 return redirect()->intended('home');
                 } else {
@@ -133,7 +132,6 @@ class LoginController extends Controller
         $request->session()->forget('avatar');
         $request->session()->forget('position');
         $request->session()->forget('department');
-        $request->session()->forget('password');
         $request->session()->flush();
 
         Toastr::success('Logout successfully :)','Success');
