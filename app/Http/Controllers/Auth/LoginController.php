@@ -88,7 +88,7 @@ class LoginController extends Controller
                 Toastr::success('Login successfully :)','Success');
                 return redirect()->intended('home');
 
-            } elseif (App::environment('login_normal')) {
+            } else {
                 if (Auth::attempt(['email'=>$username,'password'=>$password])) {
                 /** get session */
                 $user = Auth::User();
