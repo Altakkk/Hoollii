@@ -14,7 +14,7 @@
                             <form action="{{ route('register') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
-                                    <label class="mb-1"><strong>Full Nmae</strong></label>
+                                    <label class="mb-1"><strong>Full Name</strong></label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Enter full name">
                                 </div>
                                 <div class="mb-3">
